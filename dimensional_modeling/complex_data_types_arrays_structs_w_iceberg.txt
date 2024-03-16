@@ -1,5 +1,5 @@
 /********************************************************************
-Cumualtive Table Design in Trino (with Starburst and Tabluar)
+Cumulative Table Design in Trino (with Starburst and Tabular)
 ********************************************************************/
 -- DROP TABLE jkenney0501.nba_players
 
