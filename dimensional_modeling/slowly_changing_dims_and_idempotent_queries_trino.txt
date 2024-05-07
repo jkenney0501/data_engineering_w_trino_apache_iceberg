@@ -1,6 +1,11 @@
 -- SCD Type 2 
 -- Modeling SCD type 2 
--- uinsg is_active column as an indicator and cuurrent_season as a patition key
+-- using is_active column as an indicator and current_season as a patition key
+
+-- SHOW TABLES FROM jkenney0501
+-- jkenney0501.nba_players , jkenney0501.nba_players_scd
+-- describe jkenney0501.nba_players_scd
+
 
 CREATE TABLE jkenney0501.nba_players_scd(
 player_name VARCHAR,
@@ -27,7 +32,7 @@ CASE WHEN is_active THEN 1 ELSE 0 END AS is_active,
 CASE WHEN LAG(is_active, 1) OVER(PARTITION BY player_name ORDER BY current_season) THEN 1 ELSE 0 END AS is_active_last_season,
 current_season
 FROM jkenney0501.nba_players
-WHERE current_season <= 2001 -- doing this fo incremental load later on 
+WHERE current_season <= 2001 -- doing this for incremental load later on 
 ),
 
 -- identifies a streak of active last season and current
